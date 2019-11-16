@@ -2,6 +2,7 @@ import React from 'react';
 import { Router, BrowserRouter } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root';
 import { setConfig } from 'react-hot-loader';
+import { ToastContainer } from 'react-toastify';
 
 import GlobalStyle from './styles/global';
 import Routes from './routes';
@@ -18,6 +19,7 @@ function App() {
       <Router history={history}>
         <Routes />
         <GlobalStyle />
+        <ToastContainer autoClose={3000} />
       </Router>
     </BrowserRouter>
   );

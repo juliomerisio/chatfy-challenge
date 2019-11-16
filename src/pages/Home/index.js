@@ -4,6 +4,7 @@ import us from 'date-fns/locale/en-US';
 import { MdDelete } from 'react-icons/md';
 import { FaTelegramPlane, FaSpinner } from 'react-icons/fa';
 import * as Yup from 'yup';
+import { toast } from 'react-toastify';
 import api from '../../services/api';
 
 import {
@@ -68,6 +69,7 @@ export default function Home() {
         setLoading(false);
         setInputValue('');
       } catch (error) {
+        toast.error('Database is not connected');
         console.tron.log(error);
         setLoading(false);
       }
