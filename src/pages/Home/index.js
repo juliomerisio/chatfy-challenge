@@ -55,9 +55,13 @@ export default function Home() {
 
   async function handleDelete(id) {
     setDeleteLoading(true);
-
-    await api.delete(`/comment/${id}`);
-    setDeleteLoading(false);
+    try {
+      await api.delete(`/comment/${id}`);
+      setDeleteLoading(false);
+    } catch (error) {
+      toast.error('Database is not connected');
+      setDeleteLoading(false);
+    }
   }
   async function handleSubmit(data) {
     setLoading(true);
